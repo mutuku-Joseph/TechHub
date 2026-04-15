@@ -1,0 +1,13 @@
+{
+  "name": "techhub",
+  "version": "1.0.0",
+  "description": "Premium Electronics Store",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 3000",
+    "dev": "python3 -m http.server 3000"
+  },
+  "keywords": ["ecommerce", "electronics"],
+  "author": "",
+  "license": "ISC"
+}
