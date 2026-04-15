@@ -194,10 +194,10 @@ function addToCart(productId) {
     const btn = event.target;
     const originalText = btn.textContent;
     btn.textContent = 'Added!';
-    btn.style.background = '#2ed573';
+    btn.style.background = '#1b5e20';
     setTimeout(() => {
         btn.textContent = originalText;
-        btn.style.background = 'linear-gradient(45deg, #667eea, #764ba2)';
+        btn.style.background = 'linear-gradient(45deg, #1b5e20, #2d7a2f)';
     }, 1000);
 }
 
