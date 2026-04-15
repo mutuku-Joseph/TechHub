@@ -6,7 +6,9 @@ const products = [
         price: 145000,
         category: "smartphones",
         image: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=400&h=300&fit=crop",
-        description: "Latest iPhone with A17 Pro chip, titanium design, and advanced camera system."
+        description: "Latest iPhone with A17 Pro chip, titanium design, and advanced camera system.",
+        rating: 4.8,
+        specs: "6.7\" display, 512GB, Purple Titanium"
     },
     {
         id: 2,
@@ -14,7 +16,9 @@ const products = [
         price: 180000,
         category: "laptops",
         image: "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=300&fit=crop",
-        description: "Powerful laptop with M3 chip, perfect for professionals and creators."
+        description: "Powerful laptop with M3 chip, perfect for professionals and creators.",
+        rating: 4.9,
+        specs: "14\" display, 512GB SSD, Space Black"
     },
     {
         id: 3,
@@ -22,7 +26,9 @@ const products = [
         price: 35000,
         category: "headphones",
         image: "https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=400&h=300&fit=crop",
-        description: "Industry-leading noise canceling headphones with premium sound quality."
+        description: "Industry-leading noise canceling headphones with premium sound quality.",
+        rating: 4.7,
+        specs: "ANC, 8-hour battery, Bluetooth 5.3"
     },
     {
         id: 4,
@@ -30,7 +36,9 @@ const products = [
         price: 42000,
         category: "watches",
         image: "https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=400&h=300&fit=crop",
-        description: "Advanced smartwatch with health monitoring and fitness tracking."
+        description: "Advanced smartwatch with health monitoring and fitness tracking.",
+        rating: 4.6,
+        specs: "1.9\" LTPO display, 18-hour battery, Always-on"
     },
     {
         id: 5,
@@ -38,7 +46,9 @@ const products = [
         price: 135000,
         category: "smartphones",
         image: "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=300&fit=crop",
-        description: "Premium Android phone with S Pen, exceptional camera, and large display."
+        description: "Premium Android phone with S Pen, exceptional camera, and large display.",
+        rating: 4.8,
+        specs: "6.8\" display, 512GB, Graphite"
     },
     {
         id: 6,
@@ -46,7 +56,9 @@ const products = [
         price: 125000,
         category: "laptops",
         image: "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=300&fit=crop",
-        description: "Ultra-portable laptop with stunning InfinityEdge display."
+        description: "Ultra-portable laptop with stunning InfinityEdge display.",
+        rating: 4.7,
+        specs: "13.3\" FHD+, Intel Core i5, Silver"
     },
     {
         id: 7,
@@ -54,7 +66,9 @@ const products = [
         price: 95000,
         category: "tablets",
         image: "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400&h=300&fit=crop",
-        description: "Professional tablet with M2 chip and Liquid Retina XDR display."
+        description: "Professional tablet with M2 chip and Liquid Retina XDR display.",
+        rating: 4.8,
+        specs: "12.9\" display, 256GB, Space Gray"
     },
     {
         id: 8,
@@ -62,7 +76,9 @@ const products = [
         price: 28000,
         category: "headphones",
         image: "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=400&h=300&fit=crop",
-        description: "Wireless earbuds with active noise cancellation and spatial audio."
+        description: "Wireless earbuds with active noise cancellation and spatial audio.",
+        rating: 4.5,
+        specs: "ANC, Spatial Audio, 6-hour battery"
     },
     {
         id: 9,
@@ -70,7 +86,9 @@ const products = [
         price: 38000,
         category: "watches",
         image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=300&fit=crop",
-        description: "Advanced Android smartwatch with comprehensive health tracking."
+        description: "Advanced Android smartwatch with comprehensive health tracking.",
+        rating: 4.6,
+        specs: "1.3\" AMOLED, 40-hour battery, Gold"
     },
     {
         id: 10,
@@ -78,7 +96,9 @@ const products = [
         price: 140000,
         category: "laptops",
         image: "https://images.unsplash.com/photo-1611078489935-0cb964de46d6?w=400&h=300&fit=crop",
-        description: "Convertible laptop with premium build quality and long battery life."
+        description: "Convertible laptop with premium build quality and long battery life.",
+        rating: 4.7,
+        specs: "13.5\" touchscreen, Intel i7, Pale Gold"
     },
     {
         id: 11,
@@ -86,7 +106,9 @@ const products = [
         price: 115000,
         category: "smartphones",
         image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=300&fit=crop",
-        description: "AI-powered smartphone with exceptional photography capabilities."
+        description: "AI-powered smartphone with exceptional photography capabilities.",
+        rating: 4.9,
+        specs: "6.7\" display, 256GB, Obsidian"
     },
     {
         id: 12,
@@ -94,7 +116,9 @@ const products = [
         price: 110000,
         category: "tablets",
         image: "https://images.unsplash.com/photo-1593642702749-b7d2a804fbcf?w=400&h=300&fit=crop",
-        description: "Versatile 2-in-1 device that works as both laptop and tablet."
+        description: "Versatile 2-in-1 device that works as both laptop and tablet.",
+        rating: 4.6,
+        specs: "13\" touchscreen, Intel Core i5, Graphite"
     }
 ];
 
@@ -114,16 +138,65 @@ function displayProducts(productsToShow) {
 
     productsToShow.forEach(product => {
         const productCard = document.createElement('div');
-        productCard.className = 'product-card';
+        productCard.className = 'product-card product-view-standard';
+        productCard.setAttribute('data-product-id', product.id);
         productCard.innerHTML = `
+            <div class="view-toggle">
+                <button class="view-btn view-compact-btn" title="Compact view" onclick="switchView(${product.id}, 'compact')">⊡</button>
+                <button class="view-btn view-standard-btn active" title="Standard view" onclick="switchView(${product.id}, 'standard')">≡</button>
+                <button class="view-btn view-extended-btn" title="Extended view" onclick="switchView(${product.id}, 'extended')">⊞</button>
+            </div>
+
             <img src="${product.image}" alt="${product.name}" class="product-image" onerror="this.src='https://via.placeholder.com/400x300?text=Product+Image'">
+
             <div class="product-title">${product.name}</div>
             <div class="product-price">KSh ${product.price.toLocaleString()}</div>
+
             <div class="product-description">${product.description}</div>
+
+            <div class="product-extended" style="display: none;">
+                <div class="product-rating">★ ${product.rating} Rating</div>
+                <div class="product-specs">${product.specs}</div>
+            </div>
+
             <button class="add-to-cart-btn" onclick="addToCart(${product.id})">Add to Cart</button>
         `;
         productGrid.appendChild(productCard);
     });
+}
+
+// Switch product view
+function switchView(productId, viewType) {
+    const card = document.querySelector(`[data-product-id="${productId}"]`);
+    if (!card) return;
+
+    // Remove all view classes
+    card.classList.remove('product-view-compact', 'product-view-standard', 'product-view-extended');
+    card.classList.add(`product-view-${viewType}`);
+
+    // Update active button
+    card.querySelectorAll('.view-btn').forEach(btn => btn.classList.remove('active'));
+    const btnClass = viewType === 'compact' ? 'view-compact-btn' : viewType === 'standard' ? 'view-standard-btn' : 'view-extended-btn';
+    card.querySelector(`.${btnClass}`).classList.add('active');
+
+    // Show/hide elements based on view
+    const description = card.querySelector('.product-description');
+    const extended = card.querySelector('.product-extended');
+
+    switch(viewType) {
+        case 'compact':
+            description.style.display = 'none';
+            extended.style.display = 'none';
+            break;
+        case 'standard':
+            description.style.display = 'block';
+            extended.style.display = 'none';
+            break;
+        case 'extended':
+            description.style.display = 'block';
+            extended.style.display = 'block';
+            break;
+    }
 }
 
 // Filter products
